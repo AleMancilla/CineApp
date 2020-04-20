@@ -18,8 +18,11 @@ class SwiperContainerWidget extends StatelessWidget {
         itemWidth: _screenSize.width * 0.7,
         itemHeight: _screenSize.height * 0.5,
             itemBuilder: (BuildContext context, int index) {
-              return Image.network('https://vignette.wikia.nocookie.net/cartoonnetwork/images/d/dc/221975_10150172117895680_1273681_n.jpg/revision/latest/scale-to-width-down/340?cb=20130921015205&path-prefix=es',
-                fit: BoxFit.cover,
+              return ClipRRect(
+                  borderRadius: BorderRadius.circular(20.0),
+                  child: Image.network('https://vignette.wikia.nocookie.net/cartoonnetwork/images/d/dc/221975_10150172117895680_1273681_n.jpg/revision/latest/scale-to-width-down/340?cb=20130921015205&path-prefix=es',
+                  fit: BoxFit.cover,
+                ),
               );
             },
             itemCount: 3,

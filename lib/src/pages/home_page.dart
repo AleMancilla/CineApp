@@ -1,6 +1,5 @@
 import 'package:cine_app/src/widgets/SwiperContainerWidget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key key}) : super(key: key);
@@ -18,7 +17,11 @@ class HomePage extends StatelessWidget {
         ],
       ),
       body: Container(
-        child: _swiper(),
+        child: Column(
+          children: <Widget>[
+            _swiper()
+          ],
+        ),
       )
       );
   }
