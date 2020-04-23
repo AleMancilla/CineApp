@@ -12,6 +12,7 @@ class SwiperContainerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
   final _screenSize = MediaQuery.of(context).size;
     return Container(
+      width: _screenSize.width,
       padding: EdgeInsets.only(top: 5),
       child: Swiper(
         layout: SwiperLayout.STACK,

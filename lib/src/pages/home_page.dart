@@ -1,3 +1,4 @@
+import 'package:cine_app/src/providers/Peliculas_Providers.dart';
 import 'package:cine_app/src/widgets/SwiperContainerWidget.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +28,21 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _swiper() {
-    return SwiperContainerWidget(peliculas: [1,2,3]);
+    return FutureBuilder(
+      future: PeliculasProvider().getEnCines(),
+      builder: (BuildContext context, AsyncSnapshot<List> dato){
+        if(dato.hasData){
+          print(dato.data);
+          return SwiperContainerWidget(
+          peliculas: dato.data,
+          );
+        }else{
+          return Container(height: 300,child: Center(child: CircularProgressIndicator()));
+        }
+      }
+      );
+
+
   }
 
 }
