@@ -20,4 +20,23 @@ class PeliculasProvider{
     
     return peliculas.items;
   }
+
+  Future<List<Pelicula>> getPopulares()async{
+    final url = Uri.https(_url, '3/movie/popular',{
+      'api_key' : _apikey,
+      'language':_languaje
+    });
+
+    final respuesta = await get(url);
+    final decodeData = json.decode(respuesta.body);
+    final peliculas = new Peliculas.fromJsonList(decodeData['results']);
+    print('###########################################');
+    for( Pelicula i in peliculas.items)
+    {
+      print(i.title);
+    }
+    print('###########################################');
+    
+    return peliculas.items;
+  }
 }

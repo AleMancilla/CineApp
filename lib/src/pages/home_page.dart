@@ -52,7 +52,14 @@ class HomePage extends StatelessWidget {
       width: double.infinity,
       child: Column(
         children: <Widget>[
-          Text('Populares', style: Theme.of(context).textTheme.subhead,)
+          Text('Populares', style: Theme.of(context).textTheme.subhead,),
+          FutureBuilder(
+            future: PeliculasProvider().getPopulares(),
+            builder: (BuildContext context, AsyncSnapshot snapshot) {
+              print(snapshot.data);
+              return Text('nada');
+            },
+          ),
         ],
       ),
     );
