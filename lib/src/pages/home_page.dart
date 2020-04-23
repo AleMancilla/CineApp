@@ -32,7 +32,8 @@ class HomePage extends StatelessWidget {
       future: PeliculasProvider().getEnCines(),
       builder: (BuildContext context, AsyncSnapshot<List> dato){
         if(dato.hasData){
-          print(dato.data);
+          //print(dato.data);
+          //print("##____________##########_____________##########__________");
           return SwiperContainerWidget(
           peliculas: dato.data,
           );
