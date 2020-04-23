@@ -20,7 +20,8 @@ class HomePage extends StatelessWidget {
       body: Container(
         child: Column(
           children: <Widget>[
-            _swiper()
+            _swiper(),
+            _footeer(context)
           ],
         ),
       )
@@ -46,4 +47,14 @@ class HomePage extends StatelessWidget {
 
   }
 
+  Widget _footeer(BuildContext context){
+    return Container(
+      width: double.infinity,
+      child: Column(
+        children: <Widget>[
+          Text('Populares', style: Theme.of(context).textTheme.subhead,)
+        ],
+      ),
+    );
+  }
 }
