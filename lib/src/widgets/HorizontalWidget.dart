@@ -35,9 +35,11 @@ class HorizontalWidget extends StatelessWidget {
                  placeholder: AssetImage('lib/src/assets/img/no-image.jpg'), 
                  image: NetworkImage(pelicula.getImage()),
                  fit: BoxFit.cover,
-                 height: 110.0,
+                 height: 90.0,
                ),
-             )
+             ),
+             Text(pelicula.title,
+             overflow: TextOverflow.ellipsis,)
            ],
          ),
        );
