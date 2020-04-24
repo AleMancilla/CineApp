@@ -13,12 +13,7 @@ class PeliculasProvider{
       'api_key' : _apikey,
       'language':_languaje
     });
-
-    final respuesta = await get(url);
-    final decodeData = json.decode(respuesta.body);
-    final peliculas = new Peliculas.fromJsonList(decodeData['results']);
-    
-    return peliculas.items;
+    return getJson(url);
   }
 
   Future<List<Pelicula>> getPopulares()async{
@@ -26,17 +21,15 @@ class PeliculasProvider{
       'api_key' : _apikey,
       'language':_languaje
     });
+    return getJson(url);
+    
+  }
 
+
+  Future<List<Pelicula>> getJson(Uri url) async{
     final respuesta = await get(url);
     final decodeData = json.decode(respuesta.body);
     final peliculas = new Peliculas.fromJsonList(decodeData['results']);
-    print('###########################################');
-    for( Pelicula i in peliculas.items)
-    {
-      print(i.title);
-    }
-    print('###########################################');
-    
     return peliculas.items;
   }
 }

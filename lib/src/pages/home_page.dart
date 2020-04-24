@@ -1,9 +1,11 @@
 import 'package:cine_app/src/providers/Peliculas_Providers.dart';
+import 'package:cine_app/src/widgets/HorizontalWidget.dart';
 import 'package:cine_app/src/widgets/SwiperContainerWidget.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key key}) : super(key: key);
+
+  PeliculasProvider pelisProvider = new PeliculasProvider();
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,7 @@ class HomePage extends StatelessWidget {
 
   Widget _swiper() {
     return FutureBuilder(
-      future: PeliculasProvider().getEnCines(),
+      future: pelisProvider.getEnCines(),
       builder: (BuildContext context, AsyncSnapshot<List> dato){
         if(dato.hasData){
           //print(dato.data);
@@ -54,10 +56,13 @@ class HomePage extends StatelessWidget {
         children: <Widget>[
           Text('Populares', style: Theme.of(context).textTheme.subhead,),
           FutureBuilder(
-            future: PeliculasProvider().getPopulares(),
+            future: pelisProvider.getPopulares(),
             builder: (BuildContext context, AsyncSnapshot snapshot) {
-              print(snapshot.data);
-              return Text('nada');
+              if(snapshot.hasData){
+                return HorizontalWidget(listaPelis: snapshot.data);
+              }else{
+                return CircularProgressIndicator();
+              }
             },
           ),
         ],
