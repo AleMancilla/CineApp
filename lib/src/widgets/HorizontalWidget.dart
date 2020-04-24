@@ -11,19 +11,19 @@ class HorizontalWidget extends StatelessWidget {
   Widget build(BuildContext context) {
   final _screenSize = MediaQuery.of(context).size;
     return Container(
-      height: _screenSize.height * 0.2,
+      height: _screenSize.height * 0.4,
       child: PageView(
         pageSnapping: false,
         controller: PageController(
           initialPage: 5,
           viewportFraction: 0.3,
         ),
-        children: _listasPopulares(),
+        children: _listasPopulares(context),
       ),
     );
   }
 
-   List<Widget> _listasPopulares() {
+   List<Widget> _listasPopulares(BuildContext context) {
      return listaPelis.map((pelicula){
        return Container(
          margin: EdgeInsets.only(right: 15.0),
@@ -35,11 +35,12 @@ class HorizontalWidget extends StatelessWidget {
                  placeholder: AssetImage('lib/src/assets/img/no-image.jpg'), 
                  image: NetworkImage(pelicula.getImage()),
                  fit: BoxFit.cover,
-                 height: 90.0,
+                 height: 160.0,
                ),
              ),
              Text(pelicula.title,
-             overflow: TextOverflow.ellipsis,)
+             overflow: TextOverflow.ellipsis,
+             style: Theme.of(context).textTheme.caption,)
            ],
          ),
        );

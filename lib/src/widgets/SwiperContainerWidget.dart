@@ -18,7 +18,7 @@ class SwiperContainerWidget extends StatelessWidget {
       child: Swiper(
         layout: SwiperLayout.STACK,
         itemWidth: _screenSize.width * 0.7,
-        itemHeight: _screenSize.height * 0.5,
+        itemHeight: _screenSize.height * 0.4,
         itemCount: peliculas.length,
         itemBuilder: (BuildContext context, int index) {
           //print(peliculas[index].title);
