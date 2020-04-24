@@ -13,6 +13,11 @@ class HorizontalWidget extends StatelessWidget {
     return Container(
       height: _screenSize.height * 0.2,
       child: PageView(
+        pageSnapping: false,
+        controller: PageController(
+          initialPage: 5,
+          viewportFraction: 0.3,
+        ),
         children: _listasPopulares(),
       ),
     );
@@ -24,11 +29,14 @@ class HorizontalWidget extends StatelessWidget {
          margin: EdgeInsets.only(right: 15.0),
          child: Column(
            children: <Widget>[
-             FadeInImage( 
-               placeholder: AssetImage('lib/src/assets/img/no-image.jpg'), 
-               image: NetworkImage(pelicula.getImage()),
-               fit: BoxFit.cover,
-               height: 110.0,
+             ClipRRect(
+                 borderRadius: BorderRadius.all(Radius.circular(10)),
+                 child: FadeInImage( 
+                 placeholder: AssetImage('lib/src/assets/img/no-image.jpg'), 
+                 image: NetworkImage(pelicula.getImage()),
+                 fit: BoxFit.cover,
+                 height: 110.0,
+               ),
              )
            ],
          ),
