@@ -53,8 +53,11 @@ class HomePage extends StatelessWidget {
     return Container(
       width: double.infinity,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text('Populares', style: Theme.of(context).textTheme.subhead,),
+          Container(
+            padding: EdgeInsets.only(left: 15.0),
+            child: Text('Populares', style: Theme.of(context).textTheme.subhead,)),
           FutureBuilder(
             future: pelisProvider.getPopulares(),
             builder: (BuildContext context, AsyncSnapshot snapshot) {
