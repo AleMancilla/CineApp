@@ -17,8 +17,8 @@ class SwiperContainerWidget extends StatelessWidget {
       padding: EdgeInsets.only(top: 5),
       child: Swiper(
         layout: SwiperLayout.STACK,
-        itemWidth: _screenSize.width * 0.7,
-        itemHeight: _screenSize.height * 0.4,
+        itemWidth: _screenSize.width * 0.75,
+        itemHeight: _screenSize.height * 0.45,
         itemCount: peliculas.length,
         itemBuilder: (BuildContext context, int index) {
           //print(peliculas[index].title);

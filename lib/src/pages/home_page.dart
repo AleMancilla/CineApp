@@ -41,7 +41,8 @@ class HomePage extends StatelessWidget {
           peliculas: dato.data,
           );
         }else{
-          return Container(height: 300,child: Center(child: CircularProgressIndicator()));
+          return Container(height: 300,
+          child: Center(child: CircularProgressIndicator()));
         }
       }
       );
@@ -51,6 +52,7 @@ class HomePage extends StatelessWidget {
 
   Widget _footeer(BuildContext context){
     return Container(
+      //color: Colors.blueAccent,
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

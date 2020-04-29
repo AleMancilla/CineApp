@@ -7,6 +7,7 @@ class PeliculasProvider{
   String _apikey = '4d928f2be8386ff2487427b43c5efe91';
   String _url = 'api.themoviedb.org';
   String _languaje = 'es-ES';
+  int _popularesPage = 0;
   
   Future<List<Pelicula>> getEnCines()async{
     final url = Uri.https(_url, '3/movie/now_playing',{
@@ -17,9 +18,11 @@ class PeliculasProvider{
   }
 
   Future<List<Pelicula>> getPopulares()async{
+    _popularesPage++;
     final url = Uri.https(_url, '3/movie/popular',{
       'api_key' : _apikey,
-      'language':_languaje
+      'language':_languaje,
+      'page'    :_popularesPage.toString()
     });
     return getJson(url);
     

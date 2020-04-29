@@ -11,7 +11,7 @@ class HorizontalWidget extends StatelessWidget {
   Widget build(BuildContext context) {
   final _screenSize = MediaQuery.of(context).size;
     return Container(
-      height: _screenSize.height * 0.4,
+      height: _screenSize.height * 0.34,
       child: PageView(
         pageSnapping: false,
         controller: PageController(
@@ -36,7 +36,7 @@ class HorizontalWidget extends StatelessWidget {
                  image: NetworkImage(pelicula.getImage()),
                  fit: BoxFit.cover,
                  height: 160.0,
-               ),
+               ), 
              ),
              Text(pelicula.title,
              overflow: TextOverflow.ellipsis,
