@@ -1,3 +1,4 @@
+import 'package:cine_app/src/pages/PeliculaDetalle.dart';
 import 'package:cine_app/src/pages/home_page.dart';
 import 'package:flutter/material.dart';
  
@@ -11,7 +12,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
-        '/' : (BuildContext context) => HomePage()
+        '/' : (BuildContext context)        => HomePage(),
+        'detalle' : (BuildContext context)  => PeliculaDetalle()
       }
     );
   }

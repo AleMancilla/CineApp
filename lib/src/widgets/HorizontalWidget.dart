@@ -87,7 +87,7 @@ Widget _listasPopular(BuildContext context, Pelicula pelicula){
   return GestureDetector(
     child: targetaPelicula,
     onTap: (){
-      print("El titulo de la pelicula es ${pelicula.title}");
+      Navigator.pushNamed(context, 'detalle');
     },
   );
 }
