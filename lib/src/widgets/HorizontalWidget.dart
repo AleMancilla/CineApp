@@ -4,20 +4,30 @@ import 'package:flutter/material.dart';
 class HorizontalWidget extends StatelessWidget {
 
   final List<Pelicula> listaPelis;
+  final Function funcionGetPopulares;
 
-  HorizontalWidget({@required this.listaPelis});
+  final _pageControler = PageController(
+          initialPage: 1,
+          viewportFraction: 0.3,
+        ) ;
+
+  HorizontalWidget({@required this.listaPelis, @required this.funcionGetPopulares});
 
   @override
   Widget build(BuildContext context) {
   final _screenSize = MediaQuery.of(context).size;
+
+  _pageControler.addListener((){
+    if(_pageControler.position.pixels >= _pageControler.position.maxScrollExtent-200){
+      funcionGetPopulares();
+    }
+  });
+
     return Container(
       height: _screenSize.height * 0.34,
       child: PageView(
         pageSnapping: false,
-        controller: PageController(
-          initialPage: 5,
-          viewportFraction: 0.3,
-        ),
+        controller: _pageControler,
         children: _listasPopulares(context),
       ),
     );
