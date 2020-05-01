@@ -63,7 +63,7 @@ class HorizontalWidget extends StatelessWidget {
 }
 
 Widget _listasPopular(BuildContext context, Pelicula pelicula){
-  return Container(
+  final targetaPelicula =  Container(
          margin: EdgeInsets.only(right: 15.0),
          child: Column(
            children: <Widget>[
@@ -82,4 +82,12 @@ Widget _listasPopular(BuildContext context, Pelicula pelicula){
            ],
          ),
        );
+
+
+  return GestureDetector(
+    child: targetaPelicula,
+    onTap: (){
+      print("El titulo de la pelicula es ${pelicula.title}");
+    },
+  );
 }
