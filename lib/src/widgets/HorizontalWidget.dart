@@ -25,10 +25,14 @@ class HorizontalWidget extends StatelessWidget {
 
     return Container(
       height: _screenSize.height * 0.34,
-      child: PageView(
+      child: PageView.builder(
         pageSnapping: false,
         controller: _pageControler,
-        children: _listasPopulares(context),
+        //children: _listasPopulares(context),
+        itemBuilder: (context, i){
+          return _listasPopular(context,listaPelis[i]);
+        },
+        itemCount: listaPelis.length,
       ),
     );
   }
@@ -56,4 +60,26 @@ class HorizontalWidget extends StatelessWidget {
        );
      }).toList();
    }
+}
+
+Widget _listasPopular(BuildContext context, Pelicula pelicula){
+  return Container(
+         margin: EdgeInsets.only(right: 15.0),
+         child: Column(
+           children: <Widget>[
+             ClipRRect(
+                 borderRadius: BorderRadius.all(Radius.circular(10)),
+                 child: FadeInImage( 
+                 placeholder: AssetImage('lib/src/assets/img/no-image.jpg'), 
+                 image: NetworkImage(pelicula.getImage()),
+                 fit: BoxFit.cover,
+                 height: 160.0,
+               ), 
+             ),
+             Text(pelicula.title,
+             overflow: TextOverflow.ellipsis,
+             style: Theme.of(context).textTheme.caption,)
+           ],
+         ),
+       );
 }
