@@ -16,7 +16,13 @@ class PeliculaDetalle extends StatelessWidget {
             _crearAppBar(pelicula),
             SliverList(
               delegate: SliverChildListDelegate(
-                [_listaWidgets(pelicula)]
+                [
+                  _listaWidgets(context,pelicula),
+                  _descripcion(pelicula),
+                  _descripcion(pelicula),
+                  _descripcion(pelicula),
+                  _descripcion(pelicula),
+                ]
               )
         ),
         ],
@@ -44,7 +50,7 @@ class PeliculaDetalle extends StatelessWidget {
     );
   }
 
-  Widget _listaWidgets(Pelicula pelicula) {
+  Widget _listaWidgets(BuildContext context, Pelicula pelicula) {
     return Container(
       padding: EdgeInsets.all(10.0),
       child: Row(
@@ -59,9 +65,22 @@ class PeliculaDetalle extends StatelessWidget {
           SizedBox(width: 10.0,),
           Flexible(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(pelicula.originalTitle),
-                Text(pelicula.title)
+                Text(pelicula.originalTitle, style: Theme.of(context).textTheme.title,overflow: TextOverflow.ellipsis,),
+                Text(pelicula.title, style: Theme.of(context).textTheme.subtitle,overflow: TextOverflow.ellipsis),
+                Row(
+                  children: <Widget>[
+                    Icon(Icons.star),
+                    Text(pelicula.voteAverage.toString())
+                  ],
+                ),
+                Row(
+                  children: <Widget>[
+                    Icon(Icons.confirmation_number),
+                    Text(pelicula.voteCount.toString())
+                  ],
+                )
               ],
             ),
             )
@@ -69,6 +88,17 @@ class PeliculaDetalle extends StatelessWidget {
       ),
     );
 
+  }
+
+  Widget _descripcion(Pelicula pelicula) {
+    return Container(
+      padding: EdgeInsets.all(15.0),
+      child: Text(
+        pelicula.overview,
+        textAlign: TextAlign.justify,
+        ),
+
+    );
   }
 
 
