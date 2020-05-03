@@ -46,7 +46,7 @@ class PeliculaDetalle extends StatelessWidget {
 
   Widget _listaWidgets(Pelicula pelicula) {
     return Container(
-      padding: EdgeInsets.only(left: 10.0, top: 10.0),
+      padding: EdgeInsets.all(10.0),
       child: Row(
         children: <Widget>[
           ClipRRect(
@@ -56,6 +56,15 @@ class PeliculaDetalle extends StatelessWidget {
                 placeholder: AssetImage('lib/src/assets/img/no-image.jpg'), 
                 image: NetworkImage(pelicula.getImage()) ),
           ),
+          SizedBox(width: 10.0,),
+          Flexible(
+            child: Column(
+              children: <Widget>[
+                Text(pelicula.originalTitle),
+                Text(pelicula.title)
+              ],
+            ),
+            )
         ],
       ),
     );
