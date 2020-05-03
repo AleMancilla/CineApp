@@ -62,7 +62,8 @@ class HomePage extends StatelessWidget {
         children: <Widget>[
           Container(
             padding: EdgeInsets.only(left: 15.0),
-            child: Text('Populares', style: Theme.of(context).textTheme.subhead,)),
+            child: Text('Populares', style: Theme.of(context).textTheme.subhead,)
+            ),
           StreamBuilder(
             stream: pelisProvider.popularesStream,
             builder: (BuildContext context, AsyncSnapshot snapshot) {

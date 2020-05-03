@@ -67,7 +67,9 @@ Widget _listasPopular(BuildContext context, Pelicula pelicula){
          margin: EdgeInsets.only(right: 15.0),
          child: Column(
            children: <Widget>[
-             ClipRRect(
+             Hero(
+            tag: pelicula.id,
+            child: ClipRRect(
                  borderRadius: BorderRadius.all(Radius.circular(10)),
                  child: FadeInImage( 
                  placeholder: AssetImage('lib/src/assets/img/no-image.jpg'), 
@@ -75,6 +77,7 @@ Widget _listasPopular(BuildContext context, Pelicula pelicula){
                  fit: BoxFit.cover,
                  height: 160.0,
                ), 
+             ),
              ),
              Text(pelicula.title,
              overflow: TextOverflow.ellipsis,
