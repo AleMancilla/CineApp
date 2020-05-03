@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:cine_app/src/models/ActorModel.dart';
 import 'package:http/http.dart' ;
 import 'package:cine_app/src/models/Pelicula_Models.dart';
 
@@ -62,5 +63,23 @@ class PeliculasProvider{
     
 
     return peliculas.items;
+  }
+
+  Future<List<Actor>> getActores(String movieId)async{
+    print(movieId);
+    final url = Uri.https(_url, '3/movie/$movieId/credits',{
+      'api_key' : _apikey,
+      'language':_languaje
+    });
+  
+    final respuesta = await get(url);
+    final decodeData = json.decode(respuesta.body);
+    final peliculas = new Actores.fromJsonList(decodeData['cast']);
+
+    peliculas.listaActores.forEach((actor){
+      print(actor.name);
+    });
+
+    return peliculas.listaActores;
   }
 }
