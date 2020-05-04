@@ -6,7 +6,9 @@ class DataSearch extends SearchDelegate{
     // TODO: las acciones de nuestro app bar
     return [IconButton(
       icon: Icon( Icons.clear), 
-      onPressed: (){print("CLick");}) 
+      onPressed: (){
+        query = '';
+        }) 
     ];
   }
 
@@ -18,7 +20,7 @@ class DataSearch extends SearchDelegate{
         icon: AnimatedIcons.menu_arrow, 
         progress: transitionAnimation), 
       onPressed: (){
-        print("Leading icon press");
+        close(context, null);
       });
   }
 
