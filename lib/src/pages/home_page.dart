@@ -1,4 +1,5 @@
 import 'package:cine_app/src/providers/Peliculas_Providers.dart';
+import 'package:cine_app/src/search/search_delegate.dart';
 import 'package:cine_app/src/widgets/HorizontalWidget.dart';
 import 'package:cine_app/src/widgets/SwiperContainerWidget.dart';
 import 'package:flutter/material.dart';
@@ -21,8 +22,8 @@ class HomePage extends StatelessWidget {
             icon: Icon(Icons.search), 
             onPressed: (){
               showSearch(
-                context: null, 
-                delegate: null);
+                context: context, 
+                delegate: DataSearch());
             })
         ],
       ),
