@@ -63,12 +63,13 @@ class HorizontalWidget extends StatelessWidget {
 }
 
 Widget _listasPopular(BuildContext context, Pelicula pelicula){
+  pelicula.uniqueID = '${pelicula.id}-Hwidget';
   final targetaPelicula =  Container(
          margin: EdgeInsets.only(right: 15.0),
          child: Column(
            children: <Widget>[
              Hero(
-            tag: pelicula.id,
+            tag: pelicula.uniqueID,
             child: ClipRRect(
                  borderRadius: BorderRadius.all(Radius.circular(10)),
                  child: FadeInImage( 

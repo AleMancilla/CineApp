@@ -23,8 +23,9 @@ class SwiperContainerWidget extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           //print(peliculas[index].title);
           //print("################################################################3");
+          peliculas[index].uniqueID = '${peliculas[index].id}-swiper';
           return Hero(
-            tag: peliculas[index].id,
+            tag: peliculas[index].uniqueID,
             child: ClipRRect(
                 borderRadius: BorderRadius.circular(20.0),
                 child: 
