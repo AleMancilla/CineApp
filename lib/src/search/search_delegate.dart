@@ -62,6 +62,7 @@ class DataSearch extends SearchDelegate{
                           ?
                           peliculasRecientes :
                           peliculas.where((p)=>p.toLowerCase().startsWith(query.toLowerCase())).toList();
+
     if(query.isEmpty) return Container();
 
     return FutureBuilder(
@@ -80,6 +81,11 @@ class DataSearch extends SearchDelegate{
                     ),
                     title: Text(peli.title),
                     subtitle: Text(peli.originalTitle),
+                    onTap: (){
+                      close(context, null);
+                      peli.uniqueID = '';
+                      Navigator.pushNamed(context, 'detalle', arguments: peli);
+                    },
                 );
               }).toList()
           );
