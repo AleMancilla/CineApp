@@ -53,11 +53,11 @@ class DataSearch extends SearchDelegate{
                           peliculas.where((p)=>p.toLowerCase().startsWith(query.toLowerCase())).toList();
     // TODO: implement buildSuggestions
     return ListView.builder(
-      itemCount: peliculasRecientes.length,
+      itemCount: listaSugerida.length,
       itemBuilder: ((context,i){
         return ListTile(
           leading: Icon( Icons.movie),
-          title: Text(peliculasRecientes[i]),
+          title: Text(listaSugerida[i]),
           onTap: (){},
         );
       })
