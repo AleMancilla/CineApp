@@ -23,15 +23,24 @@ class SwiperContainerWidget extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           //print(peliculas[index].title);
           //print("################################################################3");
-          return ClipRRect(
-              borderRadius: BorderRadius.circular(20.0),
-              child: FadeInImage(
-                placeholder: AssetImage('lib/src/assets/img/no-image.jpg'), 
-                fadeInDuration: Duration(seconds: 2),
-                image: NetworkImage(
-                  peliculas[index].getImage()),
-                  fit: BoxFit.cover,
-                  ),
+          return Hero(
+            tag: peliculas[index].id,
+            child: ClipRRect(
+                borderRadius: BorderRadius.circular(20.0),
+                child: 
+                GestureDetector(
+                  child: FadeInImage(
+                    placeholder: AssetImage('lib/src/assets/img/no-image.jpg'), 
+                    fadeInDuration: Duration(seconds: 2),
+                    image: NetworkImage(
+                      peliculas[index].getImage()),
+                      fit: BoxFit.cover,
+                      ),
+                    onTap: (){
+                      Navigator.pushNamed(context, 'detalle',arguments: peliculas[index]);
+                    },
+                ),
+            ),
           );
         },
         //pagination: SwiperPagination(),
